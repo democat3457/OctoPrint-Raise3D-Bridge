@@ -11,10 +11,13 @@ from __future__ import absolute_import
 
 import octoprint.plugin
 
-class Raise3d_bridgePlugin(octoprint.plugin.SettingsPlugin,
+class Raise3dBridgePlugin(octoprint.plugin.SettingsPlugin,
     octoprint.plugin.AssetPlugin,
     octoprint.plugin.TemplatePlugin
 ):
+
+    def on_after_startup(self):
+        self._logger.info("Hello world!")
 
     ##~~ SettingsPlugin mixin
 
@@ -42,7 +45,7 @@ class Raise3d_bridgePlugin(octoprint.plugin.SettingsPlugin,
         # for details.
         return {
             "raise3d_bridge": {
-                "displayName": "Raise3d_bridge Plugin",
+                "displayName": "Raise3D Bridge",
                 "displayVersion": self._plugin_version,
 
                 # version check: github repository
@@ -60,17 +63,17 @@ class Raise3d_bridgePlugin(octoprint.plugin.SettingsPlugin,
 # If you want your plugin to be registered within OctoPrint under a different name than what you defined in setup.py
 # ("OctoPrint-PluginSkeleton"), you may define that here. Same goes for the other metadata derived from setup.py that
 # can be overwritten via __plugin_xyz__ control properties. See the documentation for that.
-__plugin_name__ = "Raise3d_bridge Plugin"
+__plugin_name__ = "Raise3D Bridge"
 
 
 # Set the Python version your plugin is compatible with below. Recommended is Python 3 only for all new plugins.
 # OctoPrint 1.4.0 - 1.7.x run under both Python 3 and the end-of-life Python 2.
 # OctoPrint 1.8.0 onwards only supports Python 3.
-__plugin_pythoncompat__ = ">=3,<4"  # Only Python 3
+__plugin_pythoncompat__ = ">=3.7,<4"  # Only Python 3
 
 def __plugin_load__():
     global __plugin_implementation__
-    __plugin_implementation__ = Raise3d_bridgePlugin()
+    __plugin_implementation__ = Raise3dBridgePlugin()
 
     global __plugin_hooks__
     __plugin_hooks__ = {
