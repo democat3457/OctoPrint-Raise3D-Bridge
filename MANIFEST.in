@@ -1,0 +1,4 @@
+include README.md
+recursive-include octoprint_raise3d_bridge/templates *
+recursive-include octoprint_raise3d_bridge/translations *
+recursive-include octoprint_raise3d_bridge/static *
